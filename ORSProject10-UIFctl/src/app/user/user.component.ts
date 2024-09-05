@@ -39,7 +39,7 @@ export class UserComponent extends BaseCtl {
         _self.form.data.id = res.result.data;
 
         console.log(_self.form.data.id);
-        console.log("----------Rahul----------.");
+        console.log("----------sagar id----------.");
 
       } else {
         _self.form.error = true;
@@ -51,6 +51,9 @@ export class UserComponent extends BaseCtl {
       }
      
       console.log('FORM', _self.form);
+      console.log(_self.form.data.id);
+        console.log("----------sagar id----------.");
+
     });
   }
 

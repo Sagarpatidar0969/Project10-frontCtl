@@ -49,6 +49,7 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 
 	@Value("${page.size}")
 	private int pageSize = 0;
+	
 
 	/**
 	 * Contains context of logged-in user
@@ -110,7 +111,7 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 	@GetMapping("get/{id}")
 	public ORSResponse get(@PathVariable long id) {
 
-		System.out.println("BaseCtl Get() method run.......Dipanshu");
+		System.out.println("BaseCtl Get() method run.......Sagar patidar");
 
 		ORSResponse res = new ORSResponse(true);
 		T dto = baseService.findById(id, userContext);
@@ -151,7 +152,7 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 	@PostMapping("deleteMany/{ids}")
 	public ORSResponse deleteMany(@PathVariable String[] ids, @RequestParam("pageNo") String pageNo,
 			@RequestBody F form) {
-		System.out.println("BaseCtl DeleteMany() method....Dipanshu... run");
+		System.out.println("BaseCtl DeleteMany() method....Sagar patidar... run");
 		ORSResponse res = new ORSResponse(true);
 		try {
 
@@ -241,7 +242,7 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 
 	@PostMapping("/save")
 	public ORSResponse save(@RequestBody @Valid F form, BindingResult bindingResult) {
-		System.out.println("228save() run in BaseCtl :: +vipin " + form);
+		System.out.println("228save() run in BaseCtl :: +sagar " + form);
 		ORSResponse res = validate(bindingResult);
 
 		if (res.isSuccess() == false) {
@@ -263,14 +264,14 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 					return res;
 				}
 				baseService.update(dto, userContext);
-
+ 
 			} else {
 				System.out.println("before calling add of baseservice");
 				if (dto.getUniqueKey() != null && !dto.getUniqueKey().equals("")) {
 					System.out.println("else block>>>>>>"+ dto.getUniqueKey());
 					T existDto = (T) baseService.findByUniqueKey(dto.getUniqueKey(), dto.getUniqueValue(), userContext);
 					if (existDto != null) {
-						System.out.println("247----------->" + existDto);
+						System.out.println("247------ ----->" + existDto);
 						res.addMessage(dto.getLabel() + " already exist");
 						res.setSuccess(false);
 						return res;
@@ -300,7 +301,6 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 		if (bindingResult.hasErrors()) {
 			System.out.println("BaseCtl ki validate ke error block me");
 			res.setSuccess(false);
-
 			Map<String, String> errors = new HashMap<String, String>();
 
 			List<FieldError> list = bindingResult.getFieldErrors();
@@ -311,7 +311,7 @@ public abstract class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends B
 			});
 			res.addInputErrors(errors);
 		}
-		return res;
+		return res; 
 
 	}
 }

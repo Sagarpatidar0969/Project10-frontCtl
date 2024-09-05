@@ -2,8 +2,8 @@ package com.rays.service;
 
 
 import com.rays.common.BaseServiceInt;
-import com.rays.dto.OrderDto;
+import com.rays.dto.OrderDTO;
 
-public interface OrderServiceInt extends BaseServiceInt<OrderDto> {
+public interface OrderServiceInt extends BaseServiceInt<OrderDTO> {
 
 }

@@ -10,36 +10,30 @@ import javax.validation.constraints.Pattern;
 
 import com.rays.common.BaseDTO;
 import com.rays.common.BaseForm;
-import com.rays.dto.OrderDto;
-import com.rays.validation.ValidAlphabetic;
-import com.rays.validation.ValidDate;
-import com.rays.validation.ValidLong;
+
+import com.rays.dto.OrderDTO;
+import com.rays.dto.OrderDTO;
 
 public class OrderForm extends BaseForm {
 
-	@NotNull(message = "please enter quantity")
-	@ValidLong(message = "Invalid input for price")
-	private String quantity;
+	@NotNull(message = "date is required")
+	private String date;
 
-	@NotEmpty(message = "Please enter product")
-//	@ValidAlphabetic(message = "Please type alphabets")
-	private String product;
-
-	@NotNull(message = "Please enter date")
-	@ValidDate(message = "Invalid date format or value")
-	//@Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "Invalid date format, Please use a valid date")
-	private String dob;
-
-	@NotNull(message = "Please enter price")
-	@ValidLong(message = "Invalid input for price")
+	@NotEmpty(message = "Amount is required")
 	private String amount;
 
-	public String getQuantity() {
-		return quantity;
+	@NotEmpty(message = "Quantity is required")
+	private String quantity;
+
+	@NotEmpty(message = "product is required")
+	private String product;
+
+	public String getDate() {
+		return date;
 	}
 
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getAmount() {
@@ -50,6 +44,14 @@ public class OrderForm extends BaseForm {
 		this.amount = amount;
 	}
 
+	public String getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+
 	public String getProduct() {
 		return product;
 	}
@@ -58,56 +60,30 @@ public class OrderForm extends BaseForm {
 		this.product = product;
 	}
 
-	public String getDob() {
-		return dob;
-	}
-
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
-
-//	public OrderDto getDate(String dob) {
-//		OrderDto dto = new OrderDto();
-//
-//		// Ensure orderDate is not null before parsing
-//		if (dob != null) {
-//			try {
-//				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//				Date date = sdf.parse(dob);
-//				dto.setDob(date);
-//			} catch (ParseException e) {
-//				// Handle parse exception
-//				e.printStackTrace();
-//			}
-//		} else {
-//			// Handle the case where orderDate is null
-//			System.err.println("Order date is null");
-//		}
-//
-//		return dto;
-//	}
-
 	@Override
 	public BaseDTO getDto() {
-		// SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		OrderDto dto = initDTO(new OrderDto());
-		if (quantity != null && !quantity.isEmpty()) {
-			dto.setQuantity(Long.valueOf(quantity));
+		
+		OrderDTO dto = initDTO(new OrderDTO());
+		if (amount != null && !amount.isEmpty()) {
+			dto.setAmount(Long.valueOf(amount));
 		}
 		dto.setProduct(product);
-		if (dob != null && !dob.isEmpty()) {
+		;
+		if (date != null && !date.isEmpty()) {
 			try {
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-				Date parsedDate = dateFormat.parse(dob);
-				dto.setDob(parsedDate);
+				Date parsedDate = dateFormat.parse(date);
+				dto.setDate(parsedDate);
 			} catch (ParseException e) {
 				// Handle parse exception if needed
 				e.printStackTrace();
 			}
 		}
-		if (amount != null && !amount.isEmpty()) {
-			dto.setAmount(Long.valueOf(amount));
+		
+		if (quantity != null && !quantity.isEmpty()) {
+			dto.setQuantity(Long.valueOf(quantity));
 		}
+		
 
 		return dto;
 	}

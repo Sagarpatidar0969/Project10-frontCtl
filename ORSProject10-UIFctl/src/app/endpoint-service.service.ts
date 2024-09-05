@@ -20,12 +20,23 @@ export class EndpointServiceService {
   public COURSE = this.SERVER_URL + "/Course";
   public TIMETABLE = this.SERVER_URL + "/TimeTable";
   public JASPERREPORT = this.SERVER_URL + "/Jasper";
-  public ORDER = this.SERVER_URL + "/order";
+ 
   public PAYMENT = this.SERVER_URL + "/Payment";
   public DOCTOR = this.SERVER_URL + "/Doctor";
   public WISHLIST = this.SERVER_URL + "/Wishlist";
   public PRES = this.SERVER_URL + "/Prescription";
   public INVENTORY = this.SERVER_URL + "/Inventory";
   public SUPPLIER = this.SERVER_URL + "/Supplier";
+
+  public EMPLOYEE = this.SERVER_URL + "/Employee";
+
+  public OWNER = this.SERVER_URL + "/Owner";
+
+  public POSITION = this.SERVER_URL + "/Position";
+
+public STAFFMEMBER = this.SERVER_URL + "/StaffMember";
+
+
+public ORDER = this.SERVER_URL + "/Order";
 
 }

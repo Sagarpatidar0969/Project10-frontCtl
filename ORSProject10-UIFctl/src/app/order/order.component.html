@@ -42,16 +42,7 @@
               {{form.message}}
             </div>
             
-            <div class="form-group">
-              <label><b>{{'Quantity' | translate}}</b><span class="required-field">*</span></label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa fa-user grey-text"></i></span>
-                </div>
-                <input type="number" name="quantity" [(ngModel)]="form.data.quantity" class="form-control" placeholder="{{'Enter quantity' | translate}}">
-              </div>
-              <span class="alertRedColor">{{form.inputerror.quantity}}</span>
-            </div>
+           
 
             <div class="form-group">
               <label><b>{{'Product' | translate}}</b><span class="required-field">*</span></label>
@@ -60,37 +51,53 @@
                   <span class="input-group-text"><i class="fa fa-user grey-text"></i></span>
                 </div>
                 <select class="form-control" name="product" [(ngModel)]="form.data.product">
-                  <option [ngValue]="undefined">{{'Select Product' | translate}}</option>
-                  <option *ngFor="let obj of form.preload.orderlist" [value]="obj.value">{{obj.value}}</option>
+                  <option [ngValue]="undefined">{{'Select product' | translate}}</option>
+                  <option *ngFor="let obj of form.preload.orderList" [value]="obj">{{obj}}</option>
                 </select>
               </div>
-              <span *ngIf="form.inputerror.product" class="alertRedColor">{{'product' | translate}}</span>
+              <span *ngIf="form.inputerror.product" class="alertRedColor">{{'product is required' | translate}}</span>
             </div>
 
             <div class="form-group">
-              <label><b>{{'Dob' | translate}}</b><span class="required-field">*</span></label>
+              <label><b>{{'Date' | translate}}</b><span class="required-field">*</span></label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-calendar-alt grey-text"></i></span>
                 </div>
-                <input type="date" name="dob" [value]="form.data.dob | date:'yyyy-MM-dd'" (input)="form.data.dob=parseDate($event.target.value)" class="form-control" required>
+                <input type="date" name="date" [value]="form.data.date | date:'yyyy-MM-dd'" (input)="form.data.date=parseDate($event.target.value)" class="form-control" required>
               </div>
-              <span *ngIf="form.inputerror.dob" class="alertRedColor">{{'dob' | translate}}</span>
+              <span *ngIf="form.inputerror.date" class="alertRedColor">{{'date is required' | translate}}</span>
             </div>
 
             <div class="form-group">
-              <label><b>{{'Amount' | translate}}</b><span class="required-field">*</span></label>
+              <label><b>{{' Amount' | translate}}</b><span class="required-field">*</span></label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-calculator Amount grey-text"></i></span>
                 </div>
-                <input type="number" name="amount" [(ngModel)]="form.data.amount" class="form-control" placeholder="{{'Enter Amount' | translate}}">
+                <input type="text" name="amount" [(ngModel)]="form.data.amount" class="form-control" placeholder="{{'Enter amount' | translate}}"  (keypress)="limitInput($event, 10)" >
               </div>
+              <div *ngIf="!isValidPaymentTermInput" class="text-danger">{{ paymentTermErrorMessage }}</div>
               <span class="alertRedColor">{{form.inputerror.amount}}</span>
+              
+            </div>
+
+
+            <div class="form-group">
+              <label><b>{{' Quantity' | translate}}</b><span class="required-field">*</span></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-calculator Amount grey-text"></i></span>
+                </div>
+                <input type="text" name="quantity" [(ngModel)]="form.data.quantity" class="form-control" placeholder="{{'Enter quantity' | translate}}"  (keypress)="limitInputa($event, 10)" >
+              </div>
+              <div *ngIf="!isValidPaymentTermInputa" class="text-danger">{{ paymentTermErrorMessagea }}</div>
+              <span class="alertRedColor">{{form.inputerror.quantity}}</span>
+              
             </div>
 
             <div class="form-group text-center">
-              <button *ngIf="!form.data.id > 0" (click)="submit()" [disabled]="!validate()" class="btn btn-success mr-2">{{'Save' | translate}}</button>
+              <button *ngIf="!form.data.id > 0" (click)="submit()"  class="btn btn-success mr-2">{{'Save' | translate}}</button>
               <button *ngIf="form.data.id > 0" (click)="submit()" class="btn btn-success mr-2">{{'Update' | translate}}</button>
               <button (click)="forward('/orderlist')" type="button" class="btn btn-warning">{{'List' | translate}}</button>
             </div>

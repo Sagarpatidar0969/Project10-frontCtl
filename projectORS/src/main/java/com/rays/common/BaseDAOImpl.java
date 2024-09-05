@@ -109,17 +109,17 @@ public abstract class BaseDAOImpl<T extends BaseDTO> implements BaseDAOInt<T> {
 		if (dto.isGroupFilter()) {
 			whereClause.add(builder.equal(qRoot.get("orgId"), dto.getOrgId()));
 		}
-		System.out.println(" isgroup skipped......Dipanshu");
+		System.out.println(" isgroup skipped......Sagar patidar");
 		cq.where(whereClause.toArray(new Predicate[whereClause.size()]));
 
 		List<Order> orderBys = getOrderByClause(dto, builder, qRoot);
 
-		System.out.println("after getOrder By clause........Dipanshu");
+		System.out.println("after getOrder By clause........Sagar patidar");
 		cq.orderBy(orderBys.toArray(new Order[orderBys.size()]));
 
-		System.out.println("After order by clause.......Dipanshu ");
+		System.out.println("After order by clause.......Sagar patidar ");
 		TypedQuery<T> query = entityManager.createQuery(cq);
-		System.out.println("createCriteria end here---....Dipanshu");
+		System.out.println("createCriteria end here---....Sagar patidar");
 		return query;
 
 	}
@@ -151,7 +151,7 @@ public abstract class BaseDAOImpl<T extends BaseDTO> implements BaseDAOInt<T> {
 		List list = query.getResultList();
 		System.out.println("list2>>>>>>>>>"+list);
 
-		return list;
+		return list; 
 	}
 
 	public List search(T dto, UserContext userContext) {

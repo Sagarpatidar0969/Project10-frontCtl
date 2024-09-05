@@ -16,40 +16,34 @@ background-size: cover;width:auto;
       </div>
 
       <div class="row p-1">
+        
+       
         <div class="col-sm-2">
-          <input type="number" class="form-control" [(ngModel)]="form.searchParams.quantity"
-            placeholder="{{'Search quantity' | translate }}">
-        </div>
-        <div class="col-sm-2">
-          <input type="text" class="form-control" [(ngModel)]="form.searchParams.product"
-            placeholder="{{'Search Product' | translate}}">
+          <input type="date" class="form-control" [(ngModel)]="form.searchParams.date"
+            placeholder="{{'Search Date' | translate}}">
 
         </div>
         <div class="col-sm-2">
-          <input type="date" class="form-control" [(ngModel)]="form.searchParams.dob"
-            placeholder="{{'Search Dob' | translate}}">
+          <input type="text" class="form-control" [(ngModel)]="form.searchParams.amount"
+            placeholder="{{'Search   amount' | translate}}" (keypress)="limitInput($event, 10)">
+
+            <div *ngIf="!isValidPaymentTermInput" class="text-danger">{{ paymentTermErrorMessage }}</div>
 
         </div>
         <div class="col-sm-2">
-          <input type="number" class="form-control" [(ngModel)]="form.searchParams.amount"
-            placeholder="{{'Search amount' | translate}}">
+          <input type="text" class="form-control" [(ngModel)]="form.searchParams.quantity"
+            placeholder="{{'Search   quantity' | translate}}" (keypress)="limitInputb($event, 10)">
+
+            <div *ngIf="!isValidPaymentTermInputb" class="text-danger">{{ paymentTermErrorMessageb }}</div>
 
         </div>
         <div class="col-sm-2">
 
-          <select class="form-control" name="id" [(ngModel)]="form.searchParams.id" aria-label="ngSelected">
-            <option [ngValue]="" value="undefined">{{' Select Product' | translate }}</option>
-            <option *ngFor="let obj of form.preload.orderlist" [value]="obj.key">{{obj.value}}</option>
+          <select class="form-control" name="product" [(ngModel)]="form.searchParams.product" aria-label="ngSelected">
+            <option [ngValue]="" value="undefined">{{' Select product' | translate }}</option>
+            <option *ngFor="let obj of form.preload.orderList" [value]="obj">{{obj}}</option>
           </select>
         </div>
-
-
-
-        <!-- <div class="col-sm-2">
-          <input type="text" class="form-control" [(ngModel)]="form.searchParams.email"
-            placeholder="{{'Search Email' | translate }}">
-        </div> -->
-
         <div class="col-sm-1">
           <button (click)="submit()" class="btn btn-primary">
             {{'Search' | translate }}</button>
@@ -85,10 +79,11 @@ background-size: cover;width:auto;
                 <th><input type="checkbox" [(ngModel)]="isMasterSel" name="list_name" value="h1"
                     (change)="checkUncheckAll($event)" /></th>
                 <th>{{'S.No' | translate }}</th>
-                <th>{{'Quantity' | translate }}</th>
-                <th>{{'Product' | translate }}</th>
-                <th>{{'DOB' | translate}}</th>
-                <th>{{'Amount' | translate }}</th>
+              
+                <th>{{'amount' | translate }}</th>
+                <th>{{'Date' | translate}}</th>
+                <th>{{'product' | translate }}</th>
+                <th>{{'quantity' | translate }}</th>
                 <th>{{'edit' | translate }}</th>
               </tr>
             </thead>
@@ -98,10 +93,11 @@ background-size: cover;width:auto;
                     value="{{isMasterSel}}" />
                 </td>
                 <td> {{(form.pageNo*5)+i+ 1}} </td>
-                <td>{{m.quantity}}</td>
-                <td> {{ m.product}} </td>
-                <td> {{ m.dob | date : 'dd-MM-yyyy'}} </td>
-                <td> {{ m.amount }} </td>
+               
+                <td> {{ m.amount}} </td>
+                <td> {{ m.date | date : 'dd-MM-yyyy'}} </td>
+                <td> {{ m.product }} </td>
+                <td> {{ m.quantity}} </td>
                 <td> <a (click)="forward( '/order/' +  m.id)" style="cursor: pointer;">
                     <i class="fa fa-edit text-info"></i>
                   </a>
@@ -121,7 +117,7 @@ background-size: cover;width:auto;
               </td>
               <td *ngIf="form.list.length!=0" style="width: 50%;"></td>
               <td *ngIf="form.list.length==0" style="width: 50%;"><a class="btn btn-warning mr-1"
-                  [routerLink]="['/studentlist']" (click)="exit()">{{'Back' | translate}}</a></td>
+                  [routerLink]="['/orderlist']" (click)="exit()">{{'Back' | translate}}</a></td>
               <td>
                 <button (click)="next()" [disabled]="nextList==0" type="button" class="btn btn-info">{{'Next' |
                   translate }} </button>

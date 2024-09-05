@@ -1,9 +1,8 @@
 package com.rays.dao;
 
-
 import com.rays.common.BaseDAOInt;
-import com.rays.dto.OrderDto;
+import com.rays.dto.OrderDTO;
 
-public interface OrderDAOInt extends BaseDAOInt<OrderDto>{
+public interface OrderDAOInt extends BaseDAOInt<OrderDTO> {
 
 }

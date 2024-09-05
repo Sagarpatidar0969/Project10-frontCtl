@@ -28,13 +28,13 @@ public class FrontCtl extends HandlerInterceptorAdapter {
 		System.out.println("1111");
 
 		HttpSession session = request.getSession();
-
+  
 		System.out.println("FrontCTl id => " + session.getId());
-
+ 
 		String path = request.getServletPath();
 
 		if (!path.startsWith("/Auth/")) {
-
+ 
 			System.out.println("2222");
 
 			if (session.getAttribute("user") == null) {

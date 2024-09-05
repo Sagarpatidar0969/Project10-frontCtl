@@ -32,21 +32,14 @@ import { MarksheetmeritListComponent } from "./marksheet/marksheetmerit-list.com
 import { GetmarksheetComponent } from "./marksheet/getmarksheet.component";
 import { ChangepasswordComponent } from "./user/changepassword.component";
 import { LoaderComponent } from './loader/loader.component';
-import { SpinnerComponent } from './spinner/spinner.component';
+
 import { MyprofileComponent } from './user/myprofile.component';
+
+import { OwnerComponent } from './owner/owner.component';
+import { OwnerlistComponent } from './owner/ownerlist.component';
 import { OrderComponent } from './order/order.component';
 import { OrderlistComponent } from './order/orderlist.component';
-import { PaymentComponent } from './payment/payment.component';
-import { PaymentlistComponent } from './payment/paymentlist.component';
-import { PrescriptionComponent } from './prescription/prescription.component';
-import { PrescriptionlistComponent } from './prescription/prescriptionlist.component';
-import { WishlistComponent } from './wishlist/wishlist.component';
-import { WishlistListComponent } from './wishlist/wishlist-list.component';
-import { InventoryComponent } from './inventory/inventory.component';
-import { InventorylistComponent } from './inventory/inventorylist.component';
-import { SupplierComponent } from './supplier/supplier.component';
-import { SupplierlistComponent } from './supplier/supplierlist/supplierlist.component';
-import { EmployeeComponent } from './employee/employee.component';
+
 const routes: Routes = [
     {
         path: '',
@@ -58,11 +51,7 @@ const routes: Routes = [
         component: DashboardComponent
     },
 
-    {
-        path: 'employee',
-        component: EmployeeComponent
-
-    },
+    
 
     {
         path: 'loader',
@@ -79,10 +68,7 @@ const routes: Routes = [
         component: LoginComponent
     },
 
-    {
-        path: 'spinner',
-        component: SpinnerComponent
-    },
+    
     {
         path: 'forgotpassword',
         component: ForgotPasswordComponent
@@ -103,6 +89,20 @@ const routes: Routes = [
     {
         path: 'messagelist',
         component: MessageListComponent
+
+    },
+    {
+        path: 'order',
+        component: OrderComponent,
+
+    },
+    {
+        path: 'order/:id',
+        component: OrderComponent
+    },
+    {
+        path: 'orderlist',
+        component: OrderlistComponent
 
     },
     {
@@ -206,6 +206,26 @@ const routes: Routes = [
 
     },
     {
+        path: 'owner',
+        component: OwnerComponent
+
+    },
+    {
+        path: 'ownerlist',
+        component: OwnerlistComponent
+
+    },
+    {
+        path: 'owner/:id',
+        component: OwnerComponent
+
+    },
+
+   
+   
+    
+    
+    {
 
         path: 'faculty',
         component: FacultyComponent
@@ -264,81 +284,9 @@ const routes: Routes = [
         path: 'changepassword',
         component: ChangepasswordComponent
     },
-    {
-        path: "order",
-        component: OrderComponent
-    },
-    {
-        path: "order/:id",
-        component: OrderComponent
-    },
-    {
-        path: "orderlist",
-        component: OrderlistComponent
-    },
-    {
-        path: "payment",
-        component: PaymentComponent
-
-    },
-    {
-        path: "payment/:id",
-        component: PaymentComponent
-    },
-    {
-        path: "paymentlist",
-        component: PaymentlistComponent
-    },
-    {
-        path: "prescription",
-        component: PrescriptionComponent
-    },
-    {
-        path: "prescription/:id",
-        component: PrescriptionComponent
-    },
-    {
-        path: "prescripationlist",
-        component: PrescriptionlistComponent
-    },
-    {
-        path: "wishlist",
-        component: WishlistComponent
-    },
-    {
-        path: "wishlist/:id",
-        component: WishlistComponent
-    },
-    {
-        path: "wishlistlist",
-        component: WishlistListComponent
-    },
-    {
-        path: "inventory",
-        component: InventoryComponent
-
-    },
-    {
-        path: "inventory/:id",
-        component: InventoryComponent
-    },
-    {
-        path: "inventorylist",
-        component: InventorylistComponent
-    },
-    {
-        path: "supplier",
-        component: SupplierComponent
-    },
-    {
-        path: "supplier/:id",
-        component: SupplierComponent
-    },
-
-    {
-        path: "supplierlist",
-        component: SupplierlistComponent
-    }
+    
+    
+   
 
 
 

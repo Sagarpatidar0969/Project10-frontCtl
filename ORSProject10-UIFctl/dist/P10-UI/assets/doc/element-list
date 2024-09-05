@@ -1,4 +1,3 @@
-com.rays
 com.rays.common
 com.rays.common.attachment
 com.rays.common.mail
@@ -10,3 +9,4 @@ com.rays.dto
 com.rays.exception
 com.rays.form
 com.rays.service
+com.rays.validation

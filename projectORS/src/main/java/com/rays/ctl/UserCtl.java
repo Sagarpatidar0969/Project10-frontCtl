@@ -62,8 +62,8 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 	public EmailServiceImpl emailSender;
 
 	@GetMapping("/preload")
-	public ORSResponse preload() {
-		System.out.println("inside preload Dipanshu");
+	public ORSResponse preload() { 
+		System.out.println("inside preload Sagar patidar");
 		ORSResponse res = new ORSResponse(true);
 		RoleDTO dto = new RoleDTO();
 		dto.setStatus(RoleDTO.ACTIVE);
@@ -210,24 +210,24 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 	public ORSResponse uploadPic(@PathVariable Long userId, @RequestParam("file") MultipartFile file,
 			HttpServletRequest req) {
 
-		System.out.println("User ID id --------------Sagar patidar" + userId);
-
+		System.out.println("User ID id -------------- Sagar patidar" + userId);
+ 
 		UserDTO userDTO = baseService.findById(userId, userContext);
 
 		AttachmentDTO doc = new AttachmentDTO(file);
 
-		doc.setDescription("Profile picture");
+		doc.setDescription("Profile picture"); 
 		System.out.println(doc.getDescription() + "description");
 
 		doc.setPath(req.getServletPath());
-		System.out.println(doc.getPath() + "path-----Dipanshu");
+		System.out.println(doc.getPath() + "path-----Sagar patidar");
 
 		doc.setUserId(userId);
-		System.out.println(doc.getUserId() + "id-----Dipanshu");
+		System.out.println(doc.getUserId() + "id-----Sagar patidar");
 
 		if (userDTO.getImageId() != null && userDTO.getImageId() > 0) {
 			doc.setId(userDTO.getImageId());
-		}
+		} 
 		System.out.println("before calling save");
 
 		Long imageId = attachmentService.save(doc, userContext);
@@ -238,7 +238,7 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 
 		if (userDTO.getImageId() == null || userDTO.getImageId() == 0) {
 			userDTO.setImageId(imageId);
-			baseService.update(userDTO, userContext);
+			 baseService.update(userDTO, userContext);
 		}
 
 		ORSResponse res = new ORSResponse();
@@ -276,7 +276,7 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 				out.write(attachmentDTO.getDoc());
 				out.close();
 
-				System.out.println("Profile pic......Dipanshu");
+				System.out.println("Profile pic......Sagar patidar");
 			} else {
 				response.getWriter().write("ERROR: File not found");
 			}

@@ -36,7 +36,7 @@ export class ServiceLocatorService {
   }
 
   /**
-   * Forward to page 
+   * Forward to pag e 
    * 
    * @param page 
    */

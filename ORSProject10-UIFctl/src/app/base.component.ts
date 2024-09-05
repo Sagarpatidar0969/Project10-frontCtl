@@ -212,6 +212,7 @@ export class BaseCtl implements OnInit {
     console.log(this.form + "submit running start");
     console.log("form data going to be submit" + this.form.data);
     //  console.log("form data going to be submit" + this.studentId);
+    console.log(this.form.data,"data============================================")
     this.serviceLocator.httpService.post(this.api.save, this.form.data, function (res) {
       _self.form.message = '';
        _self.form.inputerror = {};
@@ -229,8 +230,9 @@ export class BaseCtl implements OnInit {
           _self.form.inputerror = res.result.inputerror;
         }
         _self.form.message = res.result.message;
+        _self.form.data.id = res.result.data.id;
       }
-      _self.form.data.id = res.result.data.id;
+     
       console.log('FORM', _self.form);
     });
   }
@@ -254,7 +256,7 @@ export class BaseCtl implements OnInit {
 
   deleteMany(id, callback?) {
     var _self = this;
-    this.serviceLocator.httpService.post(_self.api.deleteMany + "/" + id, this.form.data, function (res) {
+    this.serviceLocator.httpService.post(_self.api.deleteMany + "/" + id, this.form.searchParams, function (res) {
       if (res.success) {
         _self.form.message = "Data is deleted";
 

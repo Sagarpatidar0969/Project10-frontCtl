@@ -67,10 +67,10 @@ public class LoginCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 		System.out.println(doc.getDescription() + "description");
 
 		doc.setPath(req.getServletPath());
-		System.out.println(doc.getPath() + "path-----Dipanshu");
+		System.out.println(doc.getPath() + "path-----Sagar patidar");
 
 		doc.setUserId(userId);
-		System.out.println(doc.getUserId() + "id-----Dipanshu");
+		System.out.println(doc.getUserId() + "id-----Sagar patidar");
 
 		if (userDTO.getImageId() != null && userDTO.getImageId() > 0) {
 			doc.setId(userDTO.getImageId());

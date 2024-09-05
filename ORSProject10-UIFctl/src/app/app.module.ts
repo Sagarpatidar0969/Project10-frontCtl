@@ -48,23 +48,17 @@ import { ChangepasswordComponent } from "./user/changepassword.component";
 import { LoaderComponent } from "./loader/loader.component";
 import { NavbarComponent } from './navbar/navbar.component';
 
-import { SpinnerComponent } from './spinner/spinner.component';
+
 import { FooterComponent } from './footer/footer.component';
 import { MyprofileComponent } from './user/myprofile.component';
 import { AuthService } from './auth-service.service';
+
+
+import { OwnerComponent } from './owner/owner.component';
+import { OwnerlistComponent } from './owner/ownerlist.component';
 import { OrderComponent } from './order/order.component';
 import { OrderlistComponent } from './order/orderlist.component';
-import { PaymentComponent } from './payment/payment.component';
-import { PaymentlistComponent } from './payment/paymentlist.component';
-import { PrescriptionComponent } from './prescription/prescription.component';
-import { PrescriptionlistComponent } from './prescription/prescriptionlist.component';
-import { WishlistComponent } from './wishlist/wishlist.component';
-import { WishlistListComponent } from './wishlist/wishlist-list.component';
-import { InventoryComponent } from './inventory/inventory.component';
-import { InventorylistComponent } from './inventory/inventorylist.component';
-import { SupplierComponent } from './supplier/supplier.component';
-import { SupplierlistComponent } from './supplier/supplierlist/supplierlist.component';
-import { EmployeeComponent } from './employee/employee.component';
+
 
 
 
@@ -115,22 +109,15 @@ export function myHttpLoader(http: HttpClient) {
     LoaderComponent,
     FileComponent,
     NavbarComponent,
-    SpinnerComponent,
+    
     FooterComponent,
     MyprofileComponent,
+   
+    OwnerComponent,
+    OwnerlistComponent,
     OrderComponent,
     OrderlistComponent,
-    PaymentComponent,
-    PaymentlistComponent,
-    PrescriptionComponent,
-    PrescriptionlistComponent,
-    WishlistComponent,
-    WishlistListComponent,
-    InventoryComponent,
-    InventorylistComponent,
-    SupplierComponent,
-    SupplierlistComponent,
-    EmployeeComponent,
+    
 
    
   ],
