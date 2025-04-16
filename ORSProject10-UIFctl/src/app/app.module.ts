@@ -56,8 +56,6 @@ import { AuthService } from './auth-service.service';
 
 import { OwnerComponent } from './owner/owner.component';
 import { OwnerlistComponent } from './owner/ownerlist.component';
-import { OrderComponent } from './order/order.component';
-import { OrderlistComponent } from './order/orderlist.component';
 
 
 
@@ -115,8 +113,7 @@ export function myHttpLoader(http: HttpClient) {
    
     OwnerComponent,
     OwnerlistComponent,
-    OrderComponent,
-    OrderlistComponent,
+    
     
 
    

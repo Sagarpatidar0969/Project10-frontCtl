@@ -37,8 +37,7 @@ import { MyprofileComponent } from './user/myprofile.component';
 
 import { OwnerComponent } from './owner/owner.component';
 import { OwnerlistComponent } from './owner/ownerlist.component';
-import { OrderComponent } from './order/order.component';
-import { OrderlistComponent } from './order/orderlist.component';
+
 
 const routes: Routes = [
     {
@@ -91,20 +90,7 @@ const routes: Routes = [
         component: MessageListComponent
 
     },
-    {
-        path: 'order',
-        component: OrderComponent,
-
-    },
-    {
-        path: 'order/:id',
-        component: OrderComponent
-    },
-    {
-        path: 'orderlist',
-        component: OrderlistComponent
-
-    },
+    
     {
         path: 'marksheet',
         component: MarksheetComponent
